@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 
 import { HandlerInterceptor } from './Core/Interceptors/handler.interceptor';
 import { PortalInterceptor } from './Core/Interceptors/portal.interceptor';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

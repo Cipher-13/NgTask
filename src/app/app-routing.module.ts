@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './Core/Guards/logged.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'auth', pathMatch: 'full' },
