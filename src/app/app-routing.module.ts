@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Core/Guards/logged.guard';
 import { LoginComponent } from './Components/login/login.component';
 import { HomeComponent } from './Components/home/home.component';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,6 +18,8 @@ const routes: Routes = [
         path: 'products',
         loadChildren: () => import('./Features/products/products.module').then(m => m.ProductsModule)
       },
+
+      { path: 'profile', component: ProfileComponent }
     ]
   },
   { path: '**', redirectTo: 'login' }

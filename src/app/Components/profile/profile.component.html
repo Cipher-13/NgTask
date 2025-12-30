@@ -1,0 +1,53 @@
+<div class="profile-container">
+  <h2 class="profile-title">Profile</h2>
+
+  <div class="profile-card">
+    <div class="profile-image-wrapper">
+      <img
+        [src]="userImage || 'https://i.pravatar.cc/150?img=5'"
+        alt="User Avatar"
+        class="profile-image"
+      />
+    </div>
+
+    <form [formGroup]="userForm">
+      <div class="form-grid">
+        <!-- First Name -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" />
+        </mat-form-field>
+
+        <!-- Last Name -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" />
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" />
+        </mat-form-field>
+
+        <!-- Age -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Age</mat-label>
+          <input matInput type="number" formControlName="age" />
+        </mat-form-field>
+
+        <!-- Phone -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="text" formControlName="phone" />
+        </mat-form-field>
+
+        <!-- Birth Date -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Birth Date</mat-label>
+          <input matInput type="text" formControlName="birthDate" />
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+</div>

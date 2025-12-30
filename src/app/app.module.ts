@@ -13,6 +13,7 @@ import { SideBarComponent } from './Shared/layouts/side-bar/side-bar.component';
 import { SharedModule } from './Shared/shared/shared.module';
 import { LoginComponent } from './Components/login/login.component';
 import { HomeComponent } from './Components/home/home.component';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './Components/home/home.component';
     NavBarComponent,
     SideBarComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
 
   ],
   imports: [
