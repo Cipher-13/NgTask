@@ -8,15 +8,24 @@ import { AppComponent } from './app.component';
 
 import { HandlerInterceptor } from './Core/Interceptors/handler.interceptor';
 import { PortalInterceptor } from './Core/Interceptors/portal.interceptor';
-import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './Shared/layouts/nav-bar/nav-bar.component';
+import { SideBarComponent } from './Shared/layouts/side-bar/side-bar.component';
+import { SharedModule } from './Shared/shared/shared.module';
+import { LoginComponent } from './Components/login/login.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarComponent,
+    SideBarComponent,
+    LoginComponent,
     HomeComponent
+
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule
