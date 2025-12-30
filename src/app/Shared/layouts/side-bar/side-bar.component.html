@@ -1,1 +1,35 @@
-<p>side-bar works!</p>
+<div class="sidebar-container">
+  <div class="sidebar-header">
+    <h1 class="ums-title">Develop Network</h1>
+  </div>
+
+  <div class="avatar-section">
+    <img [src]="sideImg" alt="User Avatar" class="avatar" />
+    <h3 class="username">{{ sideName }}</h3>
+    <p class="role">Admin</p>
+  </div>
+
+  <div class="menu">
+    <a routerLink="/dashboard/users" routerLinkActive="active" class="menu-item" [routerLinkActiveOptions]="{ exact: true }">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </a>
+
+    <a routerLink="/dashboard/users/add" routerLinkActive="active" class="menu-item">
+      <mat-icon>school</mat-icon>
+      <span>Add User</span>
+    </a>
+
+    <a routerLink="/dashboard/users/profile" routerLinkActive="active" class="menu-item">
+      <mat-icon>account_box</mat-icon>
+      <span>Profile</span>
+    </a>
+  </div>
+
+  <div class="logout">
+    <a class="logout-link" (click)="signingOut()">
+      <span>Logout</span>
+      <mat-icon>logout</mat-icon>
+    </a>
+  </div>
+</div>

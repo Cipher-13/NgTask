@@ -1,133 +1,41 @@
 /* 🔹 Layout Structure */
 .layout-container {
-  height: 100vh;
   display: flex;
+  height: 100vh;
   flex-direction: row;
+  overflow: hidden;
 }
 
-.sidenav {
+/* Sidebar */
+.sidebar {
   width: 220px;
   background-color: #f8f9fa;
   border-right: 1px solid #ddd;
+  flex-shrink: 0;
 }
 
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Navbar / Toolbar */
 .toolbar {
   position: sticky;
   top: 0;
-  background-color: #ffffff;
-  z-index: 1000;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.content {
-  flex: 1;
-  padding: 20px;
-  background-color: #fafafa;
-}
-
-/* 🔹 Responsive Breakpoints */
-@media (max-width: 1400px) {
-  .sidenav {
-    width: 200px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .sidenav {
-    width: 180px;
-  }
-}
-
-@media (max-width: 992px) {
-  .layout-container {
-    flex-direction: column;
-  }
-  .sidenav {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-  }
-}
-
-@media (max-width: 768px) {
-  .content {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 576px) {
-  .sidenav {
-    display: none;
-  }
-  .content {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 400px) {
-  .content {
-    padding: 8px;
-  }
-}
-
-@media (max-width: 320px) {
-  .content {
-    padding: 5px;
-  }
-}
-
-/* 🔹 Home Section Styling */
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 80vh;
-  gap: 16px;
-  text-align: center;
-}
-
-/* 🔹 Language Toggle Button */
-.lang-toggle-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background-color: #f1f3f4;
-  color: #333 !important;
-  border-radius: 8px;
-  padding: 6px 12px;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.lang-toggle-btn:hover {
-  background-color: #e0e0e0;
-  transform: scale(1.05);
-}
-
-.lang-icon {
-  font-size: 22px;
-  color: #3f51b5; /* لون مميز */
-}
-
-.lang-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-}
-
-/* RTL Support */
-body[dir='rtl'] .lang-toggle-btn {
-  flex-direction: row-reverse;
-}
-
-/* 🔹 Utility classes */
-.spacer {
-  flex: 1 1 auto;
+  height: 64px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .toolbar-left {
@@ -136,17 +44,74 @@ body[dir='rtl'] .lang-toggle-btn {
   gap: 12px;
 }
 
-/* 🔹 Scroll fix for long content */
-mat-sidenav-content {
+.toolbar-right {
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
+/* Search box */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 4px 8px;
+  background-color: #f9f9f9;
+  transition: 0.3s;
+}
+
+.search-container:hover {
+  border-color: #ccc;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  font-size: 14px;
+}
+
+.search-icon {
+  margin-left: 4px;
+  font-size: 16px;
+}
+
+/* Notification button */
+.notification-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+.notification-btn:hover {
+  color: #007bff;
+}
+
+/* Page content */
 .content {
+  flex: 1;
+  padding: 20px;
+  background-color: #fafafa;
   overflow-y: auto;
-  flex-grow: 1;
 }
-.mat-toolbar-row, .mat-toolbar-single-row {
-  min-height: 56px;
+
+/* Responsive Breakpoints */
+@media (max-width: 1400px) { .sidebar { width: 200px; } }
+@media (max-width: 1200px) { .sidebar { width: 180px; } }
+@media (max-width: 992px) {
+  .layout-container { flex-direction: column; }
+  .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #ddd; }
 }
+@media (max-width: 768px) { .content { padding: 15px; } }
+@media (max-width: 576px) {
+  .sidebar { display: none; }
+  .content { padding: 10px; }
+  .search-container { display: none; }
+}
+@media (max-width: 400px) { .content { padding: 8px; } }
+@media (max-width: 320px) { .content { padding: 5px; } }

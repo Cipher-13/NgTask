@@ -1,0 +1,49 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between; /* يوزع العناصر على الطرفين */
+  align-items: center;
+  padding: 0 16px;
+  background-color: #fff;
+  height: 64px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* مسافة بين عناصر اليمين */
+  flex-shrink: 0; /* تمنع الانكماش */
+}
+
+/* Search */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex: 1; /* يشغل كل المساحة */
+}
+
+.search-icon {
+  margin-left: 4px;
+}
+
+/* Notification button */
+.notification-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}

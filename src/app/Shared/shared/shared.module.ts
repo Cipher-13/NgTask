@@ -9,8 +9,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 
@@ -20,8 +18,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     FormsModule,
     ReactiveFormsModule,
 
-    MatSidenavModule,
-    MatToolbarModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
@@ -40,8 +36,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatCardModule,
     MatIconModule,
     MatSnackBarModule,
-    MatSidenavModule,
-    MatToolbarModule,
   ]
 })
 export class SharedModule {}
