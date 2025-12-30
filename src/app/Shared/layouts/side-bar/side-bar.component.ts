@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -13,7 +14,7 @@ export class SideBarComponent implements OnInit {
   sideImg: string = '';
   sideName: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private myService: AuthenticationService) {}
 
   ngOnInit(): void {
     // Load user info from localStorage
@@ -24,7 +25,7 @@ export class SideBarComponent implements OnInit {
   }
 
   signingOut(): void {
-    localStorage.clear();
+    this.myService.logout();
     this.router.navigate(['/login']);
   }
 }

@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('fName', response.firstName);
         localStorage.setItem('lName', response.lastName);
         localStorage.setItem('img', response.image);
-
+       
         this.router.navigate(['/dashboard']);
 
         this.snackBar.open('Login successful', 'Close', {

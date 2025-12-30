@@ -7,9 +7,15 @@ import { FormRequest, FormResponse } from '../Core/Interfaces/iform';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  constructor(private _http :HttpClient){ }
+ constructor(private _http :HttpClient){ }
 
-  Login(data:FormRequest):Observable<FormResponse>{
-    return this._http.post<FormResponse>('/auth/login', data);
-  }
+Login(data:FormRequest):Observable<FormResponse>{
+ return this._http.post<FormResponse>('/auth/login', data);
+ }
+
+  logout(): void {
+     localStorage.clear();
+  }
+
 }
+
