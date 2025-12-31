@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule} from '@angular/material/divider'
+import{MatTableModule} from '@angular/material/table';
 
 
 
@@ -22,8 +24,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
+    MatDividerModule,
     MatIconModule,
     MatSnackBarModule,
+    MatTableModule
   ],
   exports: [
     CommonModule,
@@ -36,6 +40,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     MatIconModule,
     MatSnackBarModule,
+    MatDividerModule,
+    MatTableModule
   ]
 })
 export class SharedModule {}

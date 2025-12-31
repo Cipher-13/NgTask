@@ -19,12 +19,12 @@ Login(data:FormRequest):Observable<FormResponse>{
   }
 
 
-  isLoggedIn(): boolean {
+  isLoggedIn(): boolean {//checking ..
     const token = localStorage.getItem('token');
     return !!token;
   }
 
-  Current(): Observable<Icontrol> { // CurrentUser
+  Current(): Observable<Icontrol> { // Fetching CurrentUser
     if (!this.isLoggedIn()) {
      console.log('User is not logged in');
     }

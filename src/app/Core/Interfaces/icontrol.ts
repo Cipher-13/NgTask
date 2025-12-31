@@ -1,4 +1,4 @@
-export interface Icontrol {
+export interface Icontrol { //dedicated for fetching current user
   firstName: string;
   lastName: string;
   email: string;

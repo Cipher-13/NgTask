@@ -1,1 +1,69 @@
-<p>products works!</p>
+<div class="products-header">
+  <span class="products-title">Products List</span>
+  <span class="spacer"></span>
+  <button routerLink="/dashboard/products/add" mat-raised-button color="warn" class="add-product-btn">
+    ADD NEW PRODUCT
+  </button>
+</div>
+
+<div class="table-header">
+  <mat-divider class="header-divider"></mat-divider>
+
+  <table mat-table [dataSource]="productList" class="mat-elevation-z0 custom-table">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let product">{{ product.id }}</td>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let product">{{ product.title }}</td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let product">{{ product.description }}</td>
+    </ng-container>
+
+    <!-- Category Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let product">{{ product.category }}</td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price ($) </th>
+      <td mat-cell *matCellDef="let product">{{ product.price }}</td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let product" class="actions-cell">
+        <a [routerLink]="['/dashboard/products/edit', product.id]" class="edit-btn-link">
+          <button mat-icon-button class="edit-btn">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </a>
+        <button mat-icon-button (click)="onDelete(product)" class="delete-btn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Table Header & Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Empty State -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="no-data" colspan="6">No products found</td>
+    </tr>
+
+  </table>
+</div>
