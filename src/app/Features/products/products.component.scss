@@ -3,7 +3,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px;
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   height: 60px;
   background: bisque;
   border-radius: 8px;
@@ -29,26 +30,29 @@
     flex: 1;
   }
 }
+
 .table-header {
+  max-width: 1200px;
+  width: 100%;
+  margin: 12px auto;
+
   .custom-table {
-    width: 100%; /* Ensure table takes full width */
+    width: 100%;
 
     ::ng-deep {
-      /* Base alignment for all headers and cells */
-      th.mat-header-cell,
-      td.mat-cell {
+      th.mat-mdc-header-cell,
+      td.mat-mdc-cell {
         text-align: center;
         vertical-align: middle;
-        padding: 8px;
+        padding: 8px 12px;
       }
 
-      /* Specific styling for the Actions column */
+      /* Actions column */
       .mat-column-actions {
         width: 100px;
         text-align: center;
       }
 
-      /* Container inside the actions cell for button alignment */
       .actions-wrapper {
         display: flex;
         justify-content: center;
@@ -56,36 +60,42 @@
         gap: 8px;
       }
 
-      /* Button styling */
       .delete-btn {
         width: 32px !important;
         height: 32px !important;
         min-width: 32px !important;
-        line-height: 32px !important;
         padding: 0 !important;
 
         .mat-icon {
           color: #e53935 !important;
           font-size: 20px !important;
-          width: 20px;
-          height: 20px;
         }
       }
     }
   }
 }
 
-/* Responsive fixes */
-@media (max-width: 1200px) {
-  .products-header {
-    width: 90%;
-  }
+.status {
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  display: inline-block;
+  min-width: 90px;
 }
 
+.status.in {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status.out {
+  background-color: #ffebee;
+  color: #c62828;
+}
 @media (max-width: 992px) {
   .products-header {
     flex-direction: column;
-    align-items: center;
     gap: 8px;
     height: auto;
 
@@ -97,56 +107,23 @@
   .custom-table {
     display: block;
     overflow-x: auto;
-
-    th.mat-header-cell,
-    td.mat-mdc-cell {
-      font-size: 13px;
-      padding: 8px;
-    }
   }
 }
 
 @media (max-width: 576px) {
-  .products-header {
-    width: 100%;
-    padding: 6px 10px;
-
-    .products-title {
-      font-size: 0.9rem;
-    }
-
-    .add-product-btn {
-      font-size: 0.8rem;
-      padding: 6px;
-    }
+  .products-title {
+    font-size: 0.95rem;
   }
 
-  .custom-table {
-    th.mat-header-cell,
+  .add-product-btn {
+    font-size: 0.8rem;
+  }
+
+  ::ng-deep {
+    th.mat-mdc-header-cell,
     td.mat-mdc-cell {
       font-size: 12px;
       padding: 6px;
-    }
-  }
-}
-
-@media (max-width: 400px) {
-  .products-header {
-    .products-title {
-      font-size: 0.85rem;
-    }
-
-    .add-product-btn {
-      font-size: 0.75rem;
-      padding: 5px;
-    }
-  }
-
-  .custom-table {
-    th.mat-header-cell,
-    td.mat-mdc-cell {
-      font-size: 11.5px;
-      padding: 5px;
     }
   }
 }

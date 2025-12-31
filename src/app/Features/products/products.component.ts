@@ -12,8 +12,17 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
-  displayedColumns: string[] = ['id','title','description','category','price','actions'];
-  dataSource = new MatTableDataSource<Iproduct>();
+ displayedColumns: string[] = [
+  'id',
+  'title',
+  'description',
+  'category',
+  'price',
+  'stock',
+  'status',
+  'actions'
+];
+ dataSource = new MatTableDataSource<Iproduct>();
   subscription!: Subscription;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -28,22 +37,29 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     this.dataSource.paginator = this.paginator; // ربط paginator بالـ table
   }
 
-  loadProducts() {
-    this.subscription = this.productsService.List().subscribe({
-      next: (res: any) => {
-        console.log('API Response:', res);
-        this.dataSource.data = res.products; // bind data
-      },
-      error: (err) => {
-        this.snackBar.open('Network Error', 'Close', {
-          duration: 3000,
-          horizontalPosition: 'end',
-          verticalPosition: 'top',
-          panelClass: ['error-snackbar'],
-        });
-      },
-    });
-  }
+loadProducts() {
+  this.subscription = this.productsService.List().subscribe({
+    next: (res: any) => {
+
+      this.dataSource.data = res.products.map((product: Iproduct) => {
+        const stock = Math.floor(Math.random() * 11); // من 0 لـ 10
+        return {
+          ...product,
+          stock
+        };
+      });
+
+    },
+    error: () => {
+      this.snackBar.open('Network Error', 'Close', {
+        duration: 3000,
+        horizontalPosition: 'end',
+        verticalPosition: 'top',
+        panelClass: ['error-snackbar'],
+      });
+    },
+  });
+}
 
   onDelete(product: Iproduct): void {
   if (!product?.id) return;
