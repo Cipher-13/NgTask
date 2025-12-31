@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   loadProducts() {
     this.subscription = this.productsService.List().subscribe({
       next: (res: any) => {
-      //console.log('API Response:', res);
+      console.log('API Response:', res);
         this.productList = res.products;
       },
       error: (err) => {

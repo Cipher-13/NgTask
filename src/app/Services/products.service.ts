@@ -14,4 +14,11 @@ export class ProductsService {
     return this._http.get<Iproduct[]>('/products');
   }
 
+
+  Maker(data: Iproduct): Observable<Iproduct> { // single product
+    return this._http.post<Iproduct>('/products/add', data);
+  }
+
+
+
 }

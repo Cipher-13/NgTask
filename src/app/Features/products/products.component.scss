@@ -1,0 +1,163 @@
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  width: 1200px;
+  height: 60px;
+  background: bisque;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+
+  .products-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: black;
+  }
+
+  .add-product-btn {
+    background-color: #feaf00 !important;
+    color: white !important;
+    font-weight: 500;
+    text-transform: uppercase;
+    min-width: 140px;
+    height: 40px;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+}
+.table-header {
+  .custom-table {
+    ::ng-deep {
+      /* Center all headers and cells */
+      th.mat-header-cell,
+      td.mat-cell {
+        display: flex !important;        // use flex to center properly
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 8px 12px !important;
+      }
+
+      /* Actions buttons */
+      .actions-cell {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 8px;
+      }
+
+      /* Buttons inside actions */
+      .edit-btn,
+      .delete-btn {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        padding: 0 !important;
+      }
+
+      .edit-btn .mat-icon {
+        color: #feaf00 !important;
+        font-size: 20px !important;
+      }
+
+      .delete-btn .mat-icon {
+        color: #e53935 !important;
+        font-size: 20px !important;
+      }
+
+      a.edit-btn-link {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+      }
+
+      /* Center the "No products found" row */
+      tr.mat-row.mat-no-data-row td {
+        justify-content: center !important;
+        text-align: center !important;
+      }
+    }
+  }
+}
+
+/* Responsive fixes */
+@media (max-width: 1200px) {
+  .products-header {
+    width: 90%;
+  }
+}
+
+@media (max-width: 992px) {
+  .products-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    height: auto;
+
+    .add-product-btn {
+      width: 100%;
+    }
+  }
+
+  .custom-table {
+    display: block;
+    overflow-x: auto;
+
+    th.mat-header-cell,
+    td.mat-mdc-cell {
+      font-size: 13px;
+      padding: 8px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .products-header {
+    width: 100%;
+    padding: 6px 10px;
+
+    .products-title {
+      font-size: 0.9rem;
+    }
+
+    .add-product-btn {
+      font-size: 0.8rem;
+      padding: 6px;
+    }
+  }
+
+  .custom-table {
+    th.mat-header-cell,
+    td.mat-mdc-cell {
+      font-size: 12px;
+      padding: 6px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .products-header {
+    .products-title {
+      font-size: 0.85rem;
+    }
+
+    .add-product-btn {
+      font-size: 0.75rem;
+      padding: 5px;
+    }
+  }
+
+  .custom-table {
+    th.mat-header-cell,
+    td.mat-mdc-cell {
+      font-size: 11.5px;
+      padding: 5px;
+    }
+  }
+}
