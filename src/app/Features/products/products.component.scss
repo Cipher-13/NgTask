@@ -31,56 +31,45 @@
 }
 .table-header {
   .custom-table {
+    width: 100%; /* Ensure table takes full width */
+
     ::ng-deep {
-      /* Center all headers and cells */
+      /* Base alignment for all headers and cells */
       th.mat-header-cell,
       td.mat-cell {
-        display: flex !important;        // use flex to center properly
-        justify-content: center !important;
-        align-items: center !important;
-        text-align: center !important;
-        padding: 8px 12px !important;
+        text-align: center;
+        vertical-align: middle;
+        padding: 8px;
       }
 
-      /* Actions buttons */
-      .actions-cell {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
+      /* Specific styling for the Actions column */
+      .mat-column-actions {
+        width: 100px;
+        text-align: center;
+      }
+
+      /* Container inside the actions cell for button alignment */
+      .actions-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 8px;
       }
 
-      /* Buttons inside actions */
-      .edit-btn,
+      /* Button styling */
       .delete-btn {
         width: 32px !important;
         height: 32px !important;
         min-width: 32px !important;
+        line-height: 32px !important;
         padding: 0 !important;
-      }
 
-      .edit-btn .mat-icon {
-        color: #feaf00 !important;
-        font-size: 20px !important;
-      }
-
-      .delete-btn .mat-icon {
-        color: #e53935 !important;
-        font-size: 20px !important;
-      }
-
-      a.edit-btn-link {
-        display: inline-flex !important;
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-      }
-
-      /* Center the "No products found" row */
-      tr.mat-row.mat-no-data-row td {
-        justify-content: center !important;
-        text-align: center !important;
+        .mat-icon {
+          color: #e53935 !important;
+          font-size: 20px !important;
+          width: 20px;
+          height: 20px;
+        }
       }
     }
   }

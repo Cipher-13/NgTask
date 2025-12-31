@@ -45,9 +45,40 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  onDelete(product: Iproduct) {
-    console.log('Delete clicked for:', product);
-  }
+  onDelete(product: Iproduct): void {
+  if (!product?.id) return;
+
+  this.productsService.Eraser(product.id).subscribe({
+    next: () => {
+      // SnackBar success
+      this.snackBar.open(
+        'Product deleted successfully',
+        'Close',
+        {
+          duration: 3000,
+          panelClass: ['success-snackbar']
+        }
+      );
+
+      this.dataSource.data = this.dataSource.data.filter(
+        p => p.id !== product.id
+      );
+    },
+    error: (error) => {
+      console.error('Delete failed:', error);
+
+      this.snackBar.open(
+        'Failed to delete product',
+        'Close',
+        {
+          duration: 3000,
+          panelClass: ['error-snackbar']
+        }
+      );
+    }
+  });
+}
+
 
   ngOnDestroy(): void {
     if (this.subscription) this.subscription.unsubscribe();

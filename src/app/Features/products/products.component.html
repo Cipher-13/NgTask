@@ -1,5 +1,5 @@
 <div class="products-header">
-  <span class="products-title">Products List</span>
+  <span class="products-title"> Items List</span>
   <span class="spacer"></span>
   <button routerLink="/dashboard/products/add" mat-raised-button color="warn" class="add-product-btn">
     ADD NEW PRODUCT
@@ -42,15 +42,17 @@
     </ng-container>
 
     <!-- Actions Column -->
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let product" class="actions-cell">
-        <button mat-icon-button (click)="onDelete(product)" class="delete-btn">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-
+   <!-- Actions Column -->
+<ng-container matColumnDef="actions">
+  <th mat-header-cell *matHeaderCellDef> Actions </th>
+  <td mat-cell *matCellDef="let product">
+    <div class="actions-wrapper">
+      <button mat-icon-button (click)="onDelete(product)" class="delete-btn" title="Delete Product">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </td>
+</ng-container>
     <!-- Table Header & Rows -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
