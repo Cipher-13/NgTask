@@ -1,0 +1,9 @@
+   <div *ngIf="loaderService.isLoading | async" class="overlay">
+      <mat-progress-spinner
+        mode="indeterminate"
+        diameter="60"
+        strokeWidth="5"
+        class="custom-spinner">
+      </mat-progress-spinner>
+    </div>
+ 

@@ -5,16 +5,21 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 import { environment } from '../Environment/environment';
+import { LoaderService } from 'src/app/Services/loader.service';
 
 @Injectable()
 export class PortalInterceptor implements HttpInterceptor {
+
+  constructor(private loader: LoaderService) { }
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+     this.loader.show();
+
 
     const isFullUrl = request.url.startsWith('http');
     const apiUrl = isFullUrl
@@ -30,6 +35,7 @@ export class PortalInterceptor implements HttpInterceptor {
         : {}
     });
 
-    return next.handle(modifiedRequest);
-  }
+       return next.handle(modifiedRequest).pipe(
+      finalize(() => this.loader.hide())
+    ); }
 }

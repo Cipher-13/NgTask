@@ -12,7 +12,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule} from '@angular/material/divider'
 import{ MatTableModule} from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -28,7 +29,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     MatSnackBarModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     CommonModule,
@@ -43,7 +46,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatSnackBarModule,
     MatDividerModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SharedModule {}

@@ -9,7 +9,7 @@
 <div class="table-header">
   <mat-divider class="header-divider"></mat-divider>
 
-  <table mat-table [dataSource]="productList" class="mat-elevation-z0 custom-table">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z0 custom-table">
 
     <!-- ID Column -->
     <ng-container matColumnDef="id">
@@ -37,8 +37,8 @@
 
     <!-- Price Column -->
     <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef> Price ($) </th>
-      <td mat-cell *matCellDef="let product">{{ product.price }}</td>
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td mat-cell *matCellDef="let product">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
     </ng-container>
 
     <!-- Actions Column -->
@@ -61,4 +61,11 @@
     </tr>
 
   </table>
+
+  <!-- Paginator -->
+  <mat-paginator
+    [pageSizeOptions]="[8, 20, 30]"
+    showFirstLastButtons
+    [pageSize]="9">
+  </mat-paginator>
 </div>
